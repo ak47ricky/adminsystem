@@ -47,7 +47,7 @@
                 <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
             	<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
 	            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
-                <button id="TestBtn"></button>
+                <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="QueryOnline()">Reload</a>
             </div>
             <table id="tb_online" class="easyui-datagrid" style="width:100%;height:90%" rownumbers="true" fitColumns="true" singleSelect="true""></table> 
         </div> 
@@ -156,6 +156,9 @@
             });
         });
 
+        $(document).ready(function () {
+            QueryOnline();
+        });
 
         $("#TestBtn").on("click", function () {
             QueryOnline();
