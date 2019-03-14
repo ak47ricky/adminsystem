@@ -61,19 +61,25 @@
 					}
 					
 					 $.ajax({
-                         url:'http://192.168.8.104/VS_Web/login.aspx',
+                         url:'http://192.168.8.104/VS_Web/login.aspx?kind=1',
+                         //url: 'model/m_login.aspx?kind=1',
 						data:{loginname:loginname,password:password},
 						error:function(res){
-                            $.messager.alert('提示', res)
+                            $.messager.alert('Error', res)
 						},
 						success:function(res){
-                            if (res == "1") {
-                                $.messager.alert('Error', '使用者名稱或者密碼錯誤');
-                            } else if (res == "99")
-                                $.messager.alert('Error', 'Error');
+                            if (res == "1")
+                                $.messager.alert('Error', '登錄代碼錯誤');
+                            else if (res == "2")
+                                $.messager.alert('Error', '帳號錯誤');
+                            else if (res == "3")
+                                $.messager.alert('Error', '密碼錯誤');
+                            else if (res == "99")
+                                $.messager.alert('Error', '資料解析錯誤');
                             else {
                                 $.messager.alert('succeed', '登入成功');
                             }
+                            
 						}
 					});
 				});
